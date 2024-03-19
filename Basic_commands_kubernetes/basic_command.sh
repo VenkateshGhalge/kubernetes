@@ -72,7 +72,7 @@ kubectl apply -f /path/to/yaml/file.ymal
 
  #pulling the conatiner images from google conatiner registry 
 
- kubeclt create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0
+ kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0
 
  #deploying single "bare" pod that's not managed by controller
 
@@ -85,6 +85,21 @@ kubectl apply -f /path/to/yaml/file.ymal
  kubectl get pods -o wide
 
 #to check the logs of the pod this command can used 
- kubeclt logs hello-world-pod 
+ kubectl logs hello-world-pod 
 
- 
+kubectl get deployment 
+
+# we can expose the deployment as service. this will create the service for the deployment 
+
+kubectl expose deployment --port=80 --target-port=8080
+
+#Deleting all the services
+
+kubectl get all
+
+kubectl delete service hello-world
+
+kubectl delete deployment hello-world
+
+kubeclt delete pods hello-world-pod
+
