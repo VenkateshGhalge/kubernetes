@@ -67,7 +67,24 @@ kubectl describe svc svc-name
 kubectl apply -f /path/to/yaml/file.ymal
 
 
+------------------------------------------------------------------------------------------------------------------
+ # Deployment using the CLI 
 
+ #pulling the conatiner images from google conatiner registry 
 
+ kubeclt create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0
 
+ #deploying single "bare" pod that's not managed by controller
 
+ kubectl run hello-world-pod --image=gcr.io/google-samples/hello-app:1.0
+
+ # to check the running pods on the cluster 
+
+ kubectl get pods
+
+ kubectl get pods -o wide
+
+#to check the logs of the pod this command can used 
+ kubeclt logs hello-world-pod 
+
+ 
