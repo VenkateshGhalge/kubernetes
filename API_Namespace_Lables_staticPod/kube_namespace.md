@@ -18,5 +18,26 @@ there are 4 namespace when you create the new cluter
 
 # creating the nampespace using CLI
 
-kubectl create namespace Dev
+kubectl create namespace dev
+
+# checking all namespace is cluster 
+
+kubectl get namespace 
+
+# Creating pod in namespace using cmd 
+
+kubectl run nginx --image=nginx --namespace dev
+
+# checking pod is created or not 
+
+kubectl get pods --namespace dev 
+
+# if you have not mentioned namespace in the yaml file then you can mention it on CLI
+
+kubectl apply -f pod.yaml --namespace=dev 
+
+# deleteing the pod
+
+kubectl delete pods nginx --namespace dev
+
 
