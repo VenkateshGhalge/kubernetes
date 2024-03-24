@@ -17,6 +17,6 @@ if we make change in static manifest file it will affect the pod which are runni
 
 we can't change the static pod using kubectl, we have modify the static pod file
 
-# Eg for Staitc pod files 
+## Eg for Staitc pod files 
 
 ![alt text](image.png)
