@@ -24,3 +24,11 @@ we can't change the static pod using kubectl, we have modify the static pod file
  monitoring the events on kubectl 
 
  ![alt text](image-1.png)
+
+  if we try to remove the static pod using kubectl 
+
+  kubectl delete pod test-minikube
+
+  kubelet will make it up again 
+
+for removing the static pod we need to remove the static pod file 
