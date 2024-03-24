@@ -20,3 +20,7 @@ we can't change the static pod using kubectl, we have modify the static pod file
 ### Eg for Staitc pod files 
 
 ![alt text](image.png)
+
+ monitoring the events on kubectl 
+
+ ![alt text](image-1.png)
