@@ -47,4 +47,6 @@ Type of diagonstic checks for probs
    eg-
     Yaml files - static_file_servers_nginx.yaml 
 
+### Example 2. 
+
  
