@@ -42,4 +42,9 @@ Type of diagonstic checks for probs
 
    - Do we need liveness Probs ?
     the application is starting up quickly and it will exit if any error, so we don't need the liveness prob 
+   - Do we need Readness Probs ?
+    Nginx is handling the incoming network traffic, so we need the readness probe 
+   eg-
+    Yaml files - static_file_servers_nginx.yaml 
+
  
