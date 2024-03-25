@@ -1,0 +1,30 @@
+apiVersion: app/v1
+kind: Deployment 
+metadata:
+  name: application-nginx
+  labels:
+    app: application-nginx
+spec:
+  replicas: 1
+  selector:
+    matchlabels:
+      app: application-nginx
+  template:
+    metadata:
+      labels:
+        app: application-nginx
+  spec:
+    containers:
+    - name: application-nginx
+      image: nginx
+      imagePullPolicy: Always
+      ports:
+      - containerPort: 8443
+        protocol: TCP
+      readinessProbe:
+        httpGet:
+          scheme: HTTPS
+          path: /index.html
+          port: 8843
+        initialDelaySeconds: 10
+        periodSeconds: 5 

@@ -33,5 +33,13 @@ A Pod is Considered Ready When all Container are Ready, if we like understand li
  3. Startup Probes 
     - run a diagnostic check on apps running in the container
 
-Type of 
+Type of diagonstic checks for probs 
+   - exec      - process exit check 
+   - tcpsocket - successfully open a port 
+   - httpGet   - return code 200 => and < 400 
+
+### Example 1. static file servers (Nginx)
+
+   - Do we need liveness Probs ?
+    the application is starting up quickly and it will exit if any error, so we don't need the liveness prob 
  
