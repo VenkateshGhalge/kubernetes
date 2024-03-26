@@ -40,13 +40,19 @@ Type of diagonstic checks for probs
 
 ### Example 1. static file servers (Nginx)
 
-   - Do we need liveness Probs ?
+   - Do we need liveness Probe ?
     the application is starting up quickly and it will exit if any error, so we don't need the liveness prob 
-   - Do we need Readness Probs ?
+   - Do we need Readness Probe ?
     Nginx is handling the incoming network traffic, so we need the readness probe 
    eg-
     Yaml files - static_file_servers_nginx.yaml 
 
-### Example 2. 
+### Example 2. static web application 
+   - DO we need liveness Probe ?
+    we need to check if all css and javascript files are load for not 
+   - Do we need Readness Probe ?
+    as we need to handle the http request we need the readness probe 
+    eg -
+     Yaml files for static_app.yaml 
 
  
