@@ -22,9 +22,10 @@ spec:
       - containerPort: 8443
         protocol: TCP
       readinessProbe:
-        httpGet:
-          scheme: HTTPS
-          path: /index.html
-          port: 8843
-        initialDelaySeconds: 10
-        periodSeconds: 5 
+        initialDelaySeconds: 1
+        periodSeconds: 5
+        timeoutSeconds: 1
+        exec:
+          command:
+          - cat
+          - /etc/nginx/nginx.conf
