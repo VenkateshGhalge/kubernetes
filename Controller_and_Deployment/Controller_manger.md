@@ -79,7 +79,7 @@ we will work with deployment controller, we are going the deploy simple hello wo
 
      kubectl rollout pause deployment my-deployment
 
-  we can resume the deployment 
+  we can resume the deployment
+ 
      kubectl rollout resume my-deployment 
 
-       
