@@ -29,15 +29,13 @@ we will work with deployment controller, we are going the deploy simple hello wo
     we can check the status of deployment 
 
     kubectl get pods 
-    
+
  2. now we will update the the app image to 2.0 
     image = gcr.io/google-samples/hello-app:2.0 in same file 
-
 
     kubectl apply -f hello-world 
 
     to check the status of new rollout, we can use this command 
-
 
     kubectl rollout status deployment hello-world
 
@@ -53,7 +51,6 @@ we will work with deployment controller, we are going the deploy simple hello wo
    - Recreating 
    - Rolling 
    - Blue/Green
-   - Canary 
 
    Kubernetes by deafult uses Rolling deployment strategy
 
@@ -74,3 +71,15 @@ we will work with deployment controller, we are going the deploy simple hello wo
       - MaxUnavailable specifies the maximum number of pods that are allowed to be unavailable during the rollout.  
         
         ![alt text](image-2.png)
+
+   - Blue/Green Deployment 
+     This involves deploying the new application version (green) along side current version running on Blue. Ones new version is test and passed successfully then they will move the traffice to new version (Green), if there is any issue they will move back to current running version. After deployment is completed successfully Green will become blue and blue will become green 
+
+  We can pause the Deployment if we there is some issue with the deployment, by using below command 
+
+     kubectl rollout pause deployment my-deployment
+
+  we can resume the deployment 
+     kubectl rollout resume my-deployment 
+
+       
