@@ -38,7 +38,7 @@ we will work with deployment controller, we are going the deploy simple hello wo
 
    ![alt text](image.png)
     
-    Both replicasets remain, that will become very useful when we need to rollback. replicaset for app version 1 and 2 
+  Both replicasets remain, that will become very useful when we need to rollback. replicaset for app version 1 and 2 
     kubectl get replicaset 
 
 ### Deployment strategies 
