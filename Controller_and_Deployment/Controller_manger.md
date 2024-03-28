@@ -27,7 +27,9 @@ we will work with deployment controller, we are going the deploy simple hello wo
  1. we will deploy hello-world.yaml file first, using below command
     kubectl apply -f hello-world.yaml
     we can check the status of deployment 
+
     kubectl get pods 
+    
  2. now we will update the the app image to 2.0 
     image = gcr.io/google-samples/hello-app:2.0 in same file 
 
@@ -36,7 +38,7 @@ we will work with deployment controller, we are going the deploy simple hello wo
 
     to check the status of new rollout, we can use this command 
 
-    
+
     kubectl rollout status deployment hello-world
 
    below is the out image for rollout command
