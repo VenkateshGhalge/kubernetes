@@ -86,5 +86,17 @@ we will work with deployment controller, we are going the deploy simple hello wo
   If we need to Rollback to old version we can use the, below command 
 
      kubectl rollout history deployment hello-world
-     
+
+     kunectl rollout history deployment hello-world --reivison=1
+
+  Restart Deployment 
+  Effective restart all the pods, But no pods are ever "recreated"
+  New Replicaset with same spec 
+  If you what to restart the Deployment with below command 
+
+     kubectl rollout restart deployment hello-world
+
+  undo the deployment to specifie version 
+
+      kubectl rollout undo deployment hello-world --to-revision=2
 
