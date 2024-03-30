@@ -122,5 +122,10 @@ we will work with deployment controller, we are going the deploy simple hello wo
 ## Job LifeCycle 
 
   They are short term running pod, they will run till given task is completed. Ones task is completed pods will get terminated, if task is failed it will re-try to run again. Job may create one or more pods are per-requirement ones task is completed they will terminated.
-  
-    
+
+  - Type of kubernetes Jobs
+     1. Non-paralle Jobs
+     2. Multiple parallel Jobs 
+     3. Parallel Jobs with Fixed Number of completions 
+     
+      
