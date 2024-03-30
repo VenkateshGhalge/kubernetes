@@ -118,3 +118,9 @@ we will work with deployment controller, we are going the deploy simple hello wo
     to check the daemonset deployed
 
       kubectl get daemonset
+
+## Job LifeCycle 
+
+  They are short term running pod, they will run till given task is completed. Ones task is completed pods will get terminated, if task is failed it will re-try to run again. Job may create one or more pods are per-requirement ones task is completed they will terminated.
+  
+    
