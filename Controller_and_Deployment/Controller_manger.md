@@ -83,3 +83,8 @@ we will work with deployment controller, we are going the deploy simple hello wo
  
      kubectl rollout resume my-deployment 
 
+  If we need to Rollback to old version we can use the, below command 
+
+     kubectl rollout history deployment hello-world
+     
+
