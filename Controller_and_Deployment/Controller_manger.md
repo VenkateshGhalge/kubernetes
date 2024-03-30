@@ -115,6 +115,6 @@ we will work with deployment controller, we are going the deploy simple hello wo
        
        kubectl apply -f daemonset-example.yaml
 
-       to check the daemonset deployed 
-        
+       to check the daemonset deployed
+
       kubectl get daemonset
