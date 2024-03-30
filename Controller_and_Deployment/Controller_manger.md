@@ -1,4 +1,4 @@
-Controller Mananger 
+# Controller Mananger 
 
 kube-controller-Manger is responsible for to running core controller, keeping the central plane in desired state 
 
@@ -100,3 +100,21 @@ we will work with deployment controller, we are going the deploy simple hello wo
 
       kubectl rollout undo deployment hello-world --to-revision=2
 
+## DeamonSet 
+
+  Deamonset object are designed to ensure that single pod is running on all nodes or selected nodes, we cann't scale up the Deamonset pods in a node. Due to some reason deamonset pod gets deleted, Demaonset controller will create the pod again. lets take example, if we what a deamonset pod to run on nodes on which DB pod are running. We can deploy the deamon set on selected nodes using nodeSelector, nodeAffinity, Taints and Tolerations 
+
+  were can we use the Deamonset 
+   1. cluster Log Collected:Running a log collector on every node to centralize  Eg- fluentd, logstash
+
+   2. Cluster Monitoring : Deploy monitoring agent, such as Prometheus Node, on each node in the cluster to collect and expose the node level metrics 
+
+   3. Security and Compliances: Running CIS Benchmark on evey node using tools like kube-bench. Also deploy the security agent, such as intrusion detection system or vulnearability scanners, on specific node 
+
+  example : daemonset-example.yaml file for cluster logging 
+       
+       kubectl apply -f daemonset-example.yaml
+
+       to check the daemonset deployed 
+        
+      kubectl get daemonset
