@@ -129,3 +129,5 @@ we will work with deployment controller, we are going the deploy simple hello wo
      2. Multiple parallel Jobs 
      3. Parallel Jobs with Fixed Number of completions 
 
+  - Non-paralle Jobs
+    Non-parallel Jobs are designed to run a single task to completion. They're the simplest type of Job, but they's also most  
