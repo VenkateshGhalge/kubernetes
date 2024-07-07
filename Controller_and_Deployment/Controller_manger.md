@@ -130,4 +130,21 @@ we will work with deployment controller, we are going the deploy simple hello wo
      3. Parallel Jobs with Fixed Number of completions 
 
   - Non-paralle Jobs
-    Non-parallel Jobs are designed to run a single task to completion. They're the simplest type of Job, but they's also most  
+    Non-parallel Jobs are designed to run a single task to completion. They're the simplest type of Job, but they's also most  reliable 
+    Non-parallel Jobs are ideal for task that can't be divided among multiple task 
+
+  - Multiple parallel Jobs 
+    Consider a situation where you need to process a large batch of data. You colud run a single job to handle Job to handle the entire batch. 
+
+  - Prallel Job with Fixed Number of completion 
+    This is similar to multiple prallel jobs only condition is that fix number of job should be successful
+
+  Creating and Configuring a Job 
+    please refer Job.yaml file  
+
+## CronJOb 
+    CronJob is special type of job which can we run on scheduled time. Cronjobs are useful for task that need to be performed periodically 
+
+    same as job only we will add the schedule in spec section 
+    ![alt text](image-3.png)
+   
