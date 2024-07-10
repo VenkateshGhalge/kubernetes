@@ -47,4 +47,4 @@ Kubernetes support the persistent storage, there are mulitple type of storage li
     1. Network - NFS, azureFile 
     2. Block - Fiber channel, iSCSI
     3. Cloud - awsElasticBlockStorage, azureDisk 
-    
+
