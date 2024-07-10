@@ -20,6 +20,18 @@ Kubernetes support the persistent storage, there are mulitple type of storage li
     3. Storage Class  
 
 ### Persistent Volume 
+
     A PV is a storage resources located in the cluster. Administrators can manually provision PVs, and Kubernetes can use storage can use storage classes to dynamically provision PVs. PVs are plugins, but there lifecycle is indepenedent of the pods lifecycle 
 
-    eg -   
+####    eg -  creating the basic yaml file for PV 
+
+    kind: PersistentVolume
+    apiVersion: v1
+    metadata:
+      name: '<Program_name>_pv_sip'
+    spec:
+      capacity:
+        storage: 10Gi
+      accessModes:
+      - ReadWriteMany
+      storageClassName: defult 
