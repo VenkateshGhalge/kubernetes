@@ -44,7 +44,7 @@ Kubernetes support the persistent storage, there are mulitple type of storage li
    - Exposes PV as mount inside the container
 
    Type of Persistent Volumes 
-    1. Network - NFS, azureFile 
-    2. Block - Fiber channel, iSCSI
-    3. Cloud - awsElasticBlockStorage, azureDisk 
+    - Network - NFS, azureFile 
+    - Block - Fiber channel, iSCSI
+    - Cloud - awsElasticBlockStorage, azureDisk 
 
