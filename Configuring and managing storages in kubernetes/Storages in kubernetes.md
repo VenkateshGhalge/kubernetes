@@ -35,3 +35,10 @@ Kubernetes support the persistent storage, there are mulitple type of storage li
       accessModes:
       - ReadWriteMany
       storageClassName: defult 
+
+   - Administrator define storage in cluster 
+   - implementation detail is for your cluster 
+   - LifeCycle independent of the pods lifecycle 
+   - PV is managed by kubelet 
+   - PV is maps the storage to node 
+   - Exposes PV as mount inside the container
