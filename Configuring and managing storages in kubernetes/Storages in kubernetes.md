@@ -28,13 +28,15 @@ Kubernetes support the persistent storage, there are mulitple type of storage li
     kind: PersistentVolume
     apiVersion: v1
     metadata:
-      name: '<Program_name>_pv_sip'
+      name: pv_sip
     spec:
       capacity:
         storage: 10Gi
       accessModes:
       - ReadWriteMany
       storageClassName: defult 
+      hostPath:
+        path: "/mnt/data"
 
    - Administrator define storage in cluster 
    - implementation detail is for your cluster 
@@ -48,3 +50,71 @@ Kubernetes support the persistent storage, there are mulitple type of storage li
    - Block - Fiber channel, iSCSI
    - Cloud - awsElasticBlockStorage, azureDisk 
 
+### Persistent Volume Claims (PVC)
+   When Pod needs the storage we can request the Storage using PVC, PVC will consume PV resources.Pods we use the storage using PVC.
+
+#### eg - creating the basic yaml file for PVC 
+
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: persistent-volume-claim
+   spec:
+     accessModes:
+       - ReadWriteOnce
+     resources:
+       requests:
+         storage: 5Gi
+  
+
+#### Flow of Volume Claim
+
+     persistentVolume ---> persistentVolumeClaim ---> Volume ---> volumeMount ---> mountPath
+
+if we delete the pod and PVC the status of PV is released and new PVC will not be able to attach to this PV. It is due to RECLAIM POLICY which is retain so we/Admin have to take a call to delete the PV as storage may have some important data 
+
+kubectl delete pod pod[name]
+kubectl delete PersistentVolumeClaim pvc-nfs-data
+
+
+## Dynamic Provisioning 
+  
+  - StorageClass is used for Dynamic provisioning 
+  - Define tiers/Classes of storage 
+  - Enable Dynamic Provisioning 
+  - define infrastucture specific parameter 
+  - Reclaim Policy 
+
+#### eg for storageClass 
+
+
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    name: slow 
+  provisioner: kubernetes.io/gce-pd
+  parameters:
+    type: pd-standard
+
+  apiVersion: storage.k8s.io/v1
+  kind: StorageClass
+  metadata:
+    name: fast 
+  provisioner: Kubernetes.io/gce-pd
+  parameters:
+    type: pd-ssd
+
+
+using the storageclass in PVC 
+
+  apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata: 
+    name: claim1
+  spec: 
+    accessModes:
+      - ReadWriteOnce
+    storageClassName: fast
+    resources:
+      requests:
+        storage: 30Gi 
