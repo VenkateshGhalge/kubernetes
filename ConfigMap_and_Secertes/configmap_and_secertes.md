@@ -1,4 +1,4 @@
-# ConfigMap and Secertes 
+# ConfigMap 
 
 we can decouple the configuration from pod using externally configuraion 
 
@@ -75,4 +75,58 @@ spec:
     - name: config
       configMap: 
         name: demo-config
-          
+
+
+Note - if we what ConfigMap not get update we can set the immutable to true
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  ...
+data:
+  ...
+immutable: true 
+
+# Secretes
+
+It is used to store the sensitive data such as password, token or a key. we are use the secret file to avoid write the password and  key in container images. 
+Properties of secretes 
+- Base64 encoded 
+- Encryption can be configured 
+- stored in etcd
+- secretes in namespace can only be referenced by pods in the same Namespace
+- Unavailable secrets will prevent pods from starting up 
+
+eg - creating the simple secerte file 
+
+apiVersion: v1
+kind: Secret
+metadata: 
+  name: app_secret
+data:
+  USERNAME: admin
+  PASSWORD: cm9vdA==
+
+for using the secret in the pods below methods 
+- Environment Variable 
+- Volume file 
+- 
+
+## Yaml file for using secret as Environment Variable 
+
+spec:
+  container:
+  - name: hello-world
+    ...
+    Env:
+    - name: app1username
+      valueFrom:
+        secretKeyRef:
+          name: app1
+          key: USERNAME
+    - name: app1password
+      valueFrom:
+        secrentKeyRef:
+          name: app1
+          Key: PASSWORD 
+  
