@@ -2,7 +2,7 @@
 
 we can decouple the configuration from pod using externally configuraion 
 
-congfiguring application in POD by 
+configuring application in POD by 
 1. command line arguments 
 2. Environment Variable 
 3. ConfigMap
